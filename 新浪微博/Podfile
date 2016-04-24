@@ -1,0 +1,12 @@
+platform :ios, 9.1
+
+pod 'SDWebImage'
+pod 'AFNetworking'
+pod 'Mantle'
+pod 'FMDB'
+pod 'CocoaAsyncSocket'
+pod 'Reachability'
+pod 'Masonry'
+pod 'MBProgressHUD'
+pod 'MJRefresh'
+
