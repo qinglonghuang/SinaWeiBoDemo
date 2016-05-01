@@ -8,6 +8,7 @@
 
 #import "HomeController.h"
 #import <Masonry.h>
+#import <UIImageView+WebCache.h>
 #import "Common.h"
 #import "UIImage+Ext.h"
 #import "StatusTool.h"
@@ -17,6 +18,8 @@
 #define kUnlockValue    ((kMaxValue - kMinValue) * 0.9f)
 
 static NSString * const CellID = @"HomeCellID";
+static const CGFloat TextFontSize = 16.0f;
+static const CGFloat DetailTextFontSize = 11.0f;
 
 @interface HomeController ()
 {
@@ -74,13 +77,34 @@ static NSString * const CellID = @"HomeCellID";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellID];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellID];
+        [cell.textLabel setNumberOfLines:0];
+        [cell.textLabel setFont:[UIFont systemFontOfSize:TextFontSize]];
+        [cell.detailTextLabel setFont:[UIFont systemFontOfSize:DetailTextFontSize]];
     }
     
     Status *s = _statuses[indexPath.row];
     [cell.textLabel setText:s.text];
     [cell.detailTextLabel setText:s.user.screen_name];
+    NSURL *profileImageURL = [NSURL URLWithString:s.user.profile_image_url];
+    [cell.imageView sd_setImageWithURL:profileImageURL
+                      placeholderImage:[UIImage imageNamed:@"tabbar_profile_selected"]
+                               options:SDWebImageLowPriority];
     
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    CGFloat width = tableView.bounds.size.width - 70.0f;
+    
+    Status *s = _statuses[indexPath.row];
+    CGFloat height = [s.text boundingRectWithSize:CGSizeMake(width, MAXFLOAT)
+                                          options:NSStringDrawingUsesLineFragmentOrigin
+                                       attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:TextFontSize]}
+                                          context:nil].size.height;
+    height += [UIFont systemFontOfSize:DetailTextFontSize].lineHeight;
+    
+    return (height > 70) ? (height + 16.0f) : 70;
 }
 
 #pragma mark - UI

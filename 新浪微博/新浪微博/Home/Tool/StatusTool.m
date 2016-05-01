@@ -24,6 +24,11 @@
                  for (NSDictionary *dict in statusesDict) {
                      Status *s = [Status objectFromDictionary:dict];
                      s.user = [User objectFromDictionary:dict[@"user"]];
+                     NSDictionary *retweetedDic = dict[@"retweeted_status"];
+                     if (retweetedDic) {
+                         s.retweeted_status = [Status objectFromDictionary:retweetedDic];
+                         s.retweeted_status.user = [User objectFromDictionary:retweetedDic[@"user"]];
+                     }
                      [statuses addObject:s];
                  }
                  
