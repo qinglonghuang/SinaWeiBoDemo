@@ -20,6 +20,7 @@
 		F988076F1C8F33610083C16C /* More.plist in Resources */ = {isa = PBXBuildFile; fileRef = F988076E1C8F33610083C16C /* More.plist */; };
 		F98923041CA82F5F00C798B9 /* OauthController.m in Sources */ = {isa = PBXBuildFile; fileRef = F98923031CA82F5F00C798B9 /* OauthController.m */; };
 		F98D40D81CC930A400DC37B1 /* OauthAccountTool.m in Sources */ = {isa = PBXBuildFile; fileRef = F98D40D71CC930A400DC37B1 /* OauthAccountTool.m */; };
+		F99324861CD6009400BA4211 /* StatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F99324851CD6009400BA4211 /* StatusCell.m */; };
 		F99E1AB91CA431E400DBF4C8 /* UIImage+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = F99E1AB81CA431E400DBF4C8 /* UIImage+Ext.m */; };
 		F99E1ABC1CA44B9E00DBF4C8 /* GroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F99E1ABB1CA44B9E00DBF4C8 /* GroupCell.m */; };
 		F9D82F111CCC736F00CD85B4 /* WeiboHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = F9D82F101CCC736F00CD85B4 /* WeiboHttpTool.m */; };
@@ -36,6 +37,7 @@
 		F9F81D1E1CC345040057F378 /* OauthAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = F9F81D1D1CC345040057F378 /* OauthAccount.m */; };
 		F9F81D211CC359870057F378 /* HQLSandboxUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = F9F81D201CC359870057F378 /* HQLSandboxUtils.m */; };
 		F9F81D241CC366370057F378 /* NSObject+JMSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = F9F81D231CC366370057F378 /* NSObject+JMSerializer.m */; };
+		F9FB51D81CD6608700562D8E /* StatusCellFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = F9FB51D71CD6608700562D8E /* StatusCellFrame.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +67,8 @@
 		F98923051CA835FA00C798B9 /* OauthConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OauthConfig.h; sourceTree = "<group>"; };
 		F98D40D61CC930A400DC37B1 /* OauthAccountTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OauthAccountTool.h; sourceTree = "<group>"; };
 		F98D40D71CC930A400DC37B1 /* OauthAccountTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OauthAccountTool.m; sourceTree = "<group>"; };
+		F99324841CD6009400BA4211 /* StatusCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusCell.h; sourceTree = "<group>"; };
+		F99324851CD6009400BA4211 /* StatusCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusCell.m; sourceTree = "<group>"; };
 		F99E1AB71CA431E400DBF4C8 /* UIImage+Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Ext.h"; sourceTree = "<group>"; };
 		F99E1AB81CA431E400DBF4C8 /* UIImage+Ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Ext.m"; sourceTree = "<group>"; };
 		F99E1ABA1CA44B9E00DBF4C8 /* GroupCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupCell.h; sourceTree = "<group>"; };
@@ -98,6 +102,8 @@
 		F9F81D201CC359870057F378 /* HQLSandboxUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HQLSandboxUtils.m; sourceTree = "<group>"; };
 		F9F81D221CC366370057F378 /* NSObject+JMSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+JMSerializer.h"; sourceTree = "<group>"; };
 		F9F81D231CC366370057F378 /* NSObject+JMSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+JMSerializer.m"; sourceTree = "<group>"; };
+		F9FB51D61CD6608700562D8E /* StatusCellFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusCellFrame.h; sourceTree = "<group>"; };
+		F9FB51D71CD6608700562D8E /* StatusCellFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusCellFrame.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -267,6 +273,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		F99324831CD6007D00BA4211 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F99324841CD6009400BA4211 /* StatusCell.h */,
+				F99324851CD6009400BA4211 /* StatusCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		F99E1AB61CA4318100DBF4C8 /* Framework */ = {
 			isa = PBXGroup;
 			children = (
@@ -294,10 +309,10 @@
 		F9F1A7211C8BE6950030F15F /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				F99324831CD6007D00BA4211 /* View */,
 				F9F6F6B31CCD12BE00869E35 /* Tool */,
 				F9F1A7221C8BE6950030F15F /* Contoller */,
 				F9F1A7231C8BE6950030F15F /* Model */,
-				F9F1A7241C8BE6950030F15F /* View */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -318,15 +333,10 @@
 				F9F6F6AE1CCCE30900869E35 /* Status.m */,
 				F9F6F6B01CCCE31A00869E35 /* User.h */,
 				F9F6F6B11CCCE31A00869E35 /* User.m */,
+				F9FB51D61CD6608700562D8E /* StatusCellFrame.h */,
+				F9FB51D71CD6608700562D8E /* StatusCellFrame.m */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		F9F1A7241C8BE6950030F15F /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		F9F1A7251C8BE69F0030F15F /* Message */ = {
@@ -607,6 +617,7 @@
 				F9F1A73A1C8BE73B0030F15F /* SquareController.m in Sources */,
 				F99E1ABC1CA44B9E00DBF4C8 /* GroupCell.m in Sources */,
 				F9F81D211CC359870057F378 /* HQLSandboxUtils.m in Sources */,
+				F99324861CD6009400BA4211 /* StatusCell.m in Sources */,
 				F95B04C61C85DDBE00488287 /* DockItem.m in Sources */,
 				F99E1AB91CA431E400DBF4C8 /* UIImage+Ext.m in Sources */,
 				F9F6F6AF1CCCE30900869E35 /* Status.m in Sources */,
@@ -619,6 +630,7 @@
 				F913F45A1C7A166D0074AD40 /* MainViewController.m in Sources */,
 				F913F4571C7A166D0074AD40 /* AppDelegate.m in Sources */,
 				F985EAFF1CC68F5100C5CBC9 /* HQLHttpUtils.m in Sources */,
+				F9FB51D81CD6608700562D8E /* StatusCellFrame.m in Sources */,
 				F9F1A7401C8BE7930030F15F /* MessageController.m in Sources */,
 				F9F1A7431C8BE7C70030F15F /* HomeController.m in Sources */,
 				F98923041CA82F5F00C798B9 /* OauthController.m in Sources */,

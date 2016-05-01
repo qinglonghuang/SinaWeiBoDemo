@@ -12,6 +12,7 @@
 #import "Common.h"
 #import "UIImage+Ext.h"
 #import "StatusTool.h"
+#import "StatusCell.h"
 
 #define kMinValue       0.0f
 #define kMaxValue       1.0f
@@ -74,37 +75,24 @@ static const CGFloat DetailTextFontSize = 11.0f;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellID];
+    StatusCell *cell = [tableView dequeueReusableCellWithIdentifier:CellID];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellID];
-        [cell.textLabel setNumberOfLines:0];
-        [cell.textLabel setFont:[UIFont systemFontOfSize:TextFontSize]];
-        [cell.detailTextLabel setFont:[UIFont systemFontOfSize:DetailTextFontSize]];
+        cell = [[StatusCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellID];
     }
     
-    Status *s = _statuses[indexPath.row];
-    [cell.textLabel setText:s.text];
-    [cell.detailTextLabel setText:s.user.screen_name];
-    NSURL *profileImageURL = [NSURL URLWithString:s.user.profile_image_url];
-    [cell.imageView sd_setImageWithURL:profileImageURL
-                      placeholderImage:[UIImage imageNamed:@"tabbar_profile_selected"]
-                               options:SDWebImageLowPriority];
+    StatusCellFrame *f = [[StatusCellFrame alloc] init];
+    f.status = _statuses[indexPath.row];
+    cell.statusCellFrame = f;
     
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    CGFloat width = tableView.bounds.size.width - 70.0f;
+    StatusCellFrame *f = [[StatusCellFrame alloc] init];
+    f.status = _statuses[indexPath.row];
     
-    Status *s = _statuses[indexPath.row];
-    CGFloat height = [s.text boundingRectWithSize:CGSizeMake(width, MAXFLOAT)
-                                          options:NSStringDrawingUsesLineFragmentOrigin
-                                       attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:TextFontSize]}
-                                          context:nil].size.height;
-    height += [UIFont systemFontOfSize:DetailTextFontSize].lineHeight;
-    
-    return (height > 70) ? (height + 16.0f) : 70;
+    return f.cellHeight;
 }
 
 #pragma mark - UI

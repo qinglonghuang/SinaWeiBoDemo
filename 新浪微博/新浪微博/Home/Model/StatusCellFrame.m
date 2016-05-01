@@ -1,0 +1,118 @@
+//
+//  StatusCellFrame.m
+//  新浪微博
+//
+//  Created by qinglong on 16/5/2.
+//  Copyright © 2016年 qinglong. All rights reserved.
+//
+
+#import "StatusCellFrame.h"
+
+static const CGFloat kCellBorderOffset = 10.0f;
+
+@implementation StatusCellFrame
+
+- (void)setStatus:(Status *)status
+{
+    _status = status;
+    
+    CGFloat cellW = [UIScreen mainScreen].bounds.size.width;
+    
+    // 利用微博数据，计算所有子控件的frame
+    // 1.头像
+    CGFloat iconX = kCellBorderOffset;
+    CGFloat iconY = kCellBorderOffset;
+    _iconViewFrame = CGRectMake(iconX, iconY, 50.0f, 50.0f);
+    
+    // 2.昵称
+    CGFloat screenNameX = CGRectGetMaxX(_iconViewFrame) + kCellBorderOffset;
+    CGFloat screenNameY = iconY;
+    CGSize screenNameSize = [status.user.screen_name boundingRectWithSize:CGSizeMake(cellW - screenNameX, MAXFLOAT)
+                                                                  options:NSStringDrawingUsesLineFragmentOrigin
+                                                               attributes:@{NSFontAttributeName:kScreenNameFont}
+                                                                  context:nil].size;
+    _screenNameLabelFrame = (CGRect){{screenNameX, screenNameY}, screenNameSize};
+    
+    // 3.时间
+    CGFloat timeX = screenNameX;
+    CGFloat timeY = CGRectGetMaxY(_screenNameLabelFrame) + kCellBorderOffset;
+//    CGSize timeSize = [status.created_at boundingRectWithSize:CGSizeMake((cellW - timeX) / 2, MAXFLOAT)
+//                                                            options:NSStringDrawingUsesLineFragmentOrigin
+//                                                         attributes:@{NSFontAttributeName:kTimeFont}
+//                                                            context:nil].size;
+    _timeLabelFrame = (CGRect){{timeX, timeY}, ((cellW - timeX) / 2), kTimeFont.lineHeight};
+    
+    // 4.来源
+    CGFloat sourceX = CGRectGetMaxX(_timeLabelFrame) + kCellBorderOffset;
+    CGFloat sourceY = timeY;
+    _sourceLabelFrame = (CGRect){{sourceX, sourceY}, ((cellW - timeX) / 2), kSourceFont.lineHeight};
+    
+    // 5.内容
+    CGFloat textX = iconX;
+    CGFloat textY = CGRectGetMaxY(_sourceLabelFrame) + kCellBorderOffset;
+    CGSize textSize = [status.text boundingRectWithSize:CGSizeMake((cellW - 2 * kCellBorderOffset), MAXFLOAT)
+                                                options:NSStringDrawingUsesLineFragmentOrigin
+                                             attributes:@{NSFontAttributeName:kTextFont}
+                                                context:nil].size;
+    _textLabelFrame = (CGRect){{textX, textY}, textSize};
+    
+    if (status.pic_urls.count > 0) {
+        // 6.配图
+        CGFloat imageX = textX;
+        CGFloat imageY = CGRectGetMaxY(_textLabelFrame) + kCellBorderOffset;
+        CGFloat imageW = 150.0f;//cellW - 2 * kCellBorderOffset;
+        _imageViewFrame = CGRectMake(imageX, imageY, imageW, imageW);
+    } else if (status.retweeted_status) {
+        // 7.有转发的微博
+        // 被转发微博父控件
+        CGFloat retweetedContainerX = textX;
+        CGFloat retweetedContainerY = CGRectGetMaxY(_textLabelFrame) + kCellBorderOffset;
+        CGFloat retweetedContainerW = cellW - 2 * kCellBorderOffset;
+        CGFloat retweetedContainerH = kCellBorderOffset;
+        
+        // 7.1 被转发微博的昵称
+        CGFloat retweetedScreenNameX = kCellBorderOffset;
+        CGFloat retweetedScreenNameY = kCellBorderOffset;
+        CGSize retweetedScreenNameSize = [status.retweeted_status.user.screen_name boundingRectWithSize:CGSizeMake((cellW - 2 * kCellBorderOffset), MAXFLOAT)
+                                                                   options:NSStringDrawingUsesLineFragmentOrigin
+                                                                attributes:@{NSFontAttributeName:kRetweetedScreenNameFont}
+                                                                   context:nil].size;
+        _retweetedScreenNameLabelFrame = (CGRect){{retweetedScreenNameX, retweetedScreenNameY}, retweetedScreenNameSize};
+        
+        // 7.2 被转发微博的内容
+        CGFloat retweetedTextX = retweetedScreenNameX;
+        CGFloat retweetedTextY = CGRectGetMaxY(_retweetedScreenNameLabelFrame) + kCellBorderOffset;
+        CGSize retweetedTextSize = [status.retweeted_status.text boundingRectWithSize:CGSizeMake((cellW - 2 * kCellBorderOffset), MAXFLOAT)
+                                                                   options:NSStringDrawingUsesLineFragmentOrigin
+                                                                attributes:@{NSFontAttributeName:kRetweetedTextFont}
+                                                                   context:nil].size;
+        _retweetedTextLabelFrame = (CGRect){{retweetedTextX, retweetedTextY}, retweetedTextSize};
+        
+        // 7.3 被转发微博的配图
+        if (status.retweeted_status.pic_urls.count > 0) {
+            CGFloat retweetedImageX = retweetedTextX;
+            CGFloat retweetedImageY = CGRectGetMaxY(_retweetedTextLabelFrame) + kCellBorderOffset;
+            CGFloat retweetedImageW = 150.0f;//cellW - 2 * kCellBorderOffset;
+            _retweetedImageViewFrame = CGRectMake(retweetedImageX, retweetedImageY, retweetedImageW, retweetedImageW);
+            retweetedContainerH += CGRectGetMaxY(_retweetedImageViewFrame);
+        } else {
+            retweetedContainerH += CGRectGetMaxY(_retweetedTextLabelFrame);
+        }
+        
+        // 7.4 被转发微博父控件
+        _retweetedContainerFrame = CGRectMake(retweetedContainerX, retweetedContainerY, retweetedContainerW, retweetedContainerH);
+    }
+    
+    // 8.整个cell的高度
+    _cellHeight = kCellBorderOffset;
+    if (status.pic_urls.count > 0) {
+        _cellHeight += CGRectGetMaxY(_imageViewFrame);
+    } else if (status.retweeted_status) {
+        _cellHeight += CGRectGetMaxY(_retweetedContainerFrame);
+    } else {
+        _cellHeight += CGRectGetMaxY(_textLabelFrame);
+    }
+
+}
+
+@end
