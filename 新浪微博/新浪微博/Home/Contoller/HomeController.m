@@ -19,12 +19,10 @@
 #define kUnlockValue    ((kMaxValue - kMinValue) * 0.9f)
 
 static NSString * const CellID = @"HomeCellID";
-static const CGFloat TextFontSize = 16.0f;
-static const CGFloat DetailTextFontSize = 11.0f;
 
 @interface HomeController ()
 {
-    NSArray *_statuses;
+    NSMutableArray *_statusFramesM;
 }
 
 @end
@@ -46,7 +44,19 @@ static const CGFloat DetailTextFontSize = 11.0f;
 {
     WS(weakSelf);
     [StatusTool statusesWithSuccess:^(NSArray<Status *> *statuses) {
-        _statuses = statuses;
+        if (_statusFramesM == nil) {
+            _statusFramesM = [NSMutableArray array];
+        } else {
+            [_statusFramesM removeAllObjects];
+        }
+        
+        for (Status *s in statuses) {
+            StatusCellFrame *f = [[StatusCellFrame alloc] init];
+            f.status = s;
+            [_statusFramesM addObject:f];
+        }
+        
+        
         [weakSelf.tableView reloadData];
     } failure:^(NSError *error) {
         NSLog(@"Error:获取当前登录用户及其所关注（授权）用户的最新微博失败 %@", error.localizedDescription);
@@ -70,7 +80,7 @@ static const CGFloat DetailTextFontSize = 11.0f;
 #pragma mark - 代理方法
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _statuses.count;
+    return _statusFramesM.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -79,20 +89,15 @@ static const CGFloat DetailTextFontSize = 11.0f;
     if (cell == nil) {
         cell = [[StatusCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellID];
     }
-    
-    StatusCellFrame *f = [[StatusCellFrame alloc] init];
-    f.status = _statuses[indexPath.row];
-    cell.statusCellFrame = f;
+
+    cell.statusCellFrame = _statusFramesM[indexPath.row];
     
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    StatusCellFrame *f = [[StatusCellFrame alloc] init];
-    f.status = _statuses[indexPath.row];
-    
-    return f.cellHeight;
+    return [_statusFramesM[indexPath.row] cellHeight];
 }
 
 #pragma mark - UI

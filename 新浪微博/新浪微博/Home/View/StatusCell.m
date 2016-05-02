@@ -8,11 +8,19 @@
 
 #import "StatusCell.h"
 #import <UIImageView+WebCache.h>
+#import "IconView.h"
+#import "Common.h"
+
+// 会员昵称颜色
+#define kMBScreenNameColor      RGB(243, 101, 18)
+// 非会员昵称颜色
+#define kScreenNameColor        RGB(93, 93, 93)
 
 @interface StatusCell ()
 {
-    UIImageView *_iconView;             // 头像
+    IconView *_iconView;                // 头像
     UILabel *_screenNameLabel;          // 昵称
+    UIImageView *_mbView;                // 会员图标
     UILabel *_timeLabel;                // 时间
     UILabel *_sourceLabel;              // 来源
     UILabel *_textLabel;                // 内容
@@ -46,13 +54,17 @@
 - (void)addSelfSubviews
 {
     // 1.头像
-    _iconView = [[UIImageView alloc] init];
+    _iconView = [[IconView alloc] init];
     [self.contentView addSubview:_iconView];
     
     // 2.昵称
     _screenNameLabel = [[UILabel alloc] init];
     _screenNameLabel.font = kScreenNameFont;
     [self.contentView addSubview:_screenNameLabel];
+    
+    // 会员图标
+    _mbView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"common_icon_membership"]];
+    [self.contentView addSubview:_mbView];
     
     // 3.时间
     _timeLabel = [[UILabel alloc] init];
@@ -106,14 +118,21 @@
     Status *s = statusCellFrame.status;
     
     // 1.头像
+    [_iconView setUser:statusCellFrame.status.user iconType:kIconTypeSmall];
     _iconView.frame = statusCellFrame.iconViewFrame;
-    [_iconView sd_setImageWithURL:[NSURL URLWithString:s.user.profile_image_url]
-                 placeholderImage:[UIImage imageNamed:@"tabbar_profile_selected"]
-                          options:(SDWebImageLowPriority | SDWebImageRetryFailed)];
     
     // 2.昵称
     _screenNameLabel.frame = statusCellFrame.screenNameLabelFrame;
     _screenNameLabel.text = s.user.screen_name;
+    // 判断是不是会员
+    if (s.user.mbtype == kMBTypeNone) {
+        _screenNameLabel.textColor = kScreenNameColor;
+        _mbView.hidden = YES;
+    } else {
+        _screenNameLabel.textColor = kMBScreenNameColor;
+        _mbView.hidden = NO;
+        _mbView.frame = statusCellFrame.mbViewFrame;
+    }
     
     // 3.时间
     _timeLabel.frame = statusCellFrame.timeLabelFrame;

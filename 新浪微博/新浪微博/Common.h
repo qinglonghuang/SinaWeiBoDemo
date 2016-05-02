@@ -17,4 +17,7 @@
 
 #define WS(weakSelf) __weak __typeof(&*self)weakSelf = self
 
+#define RGB(r, g, b) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:1.0f]
+#define RGBA(r, g, b, a) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:(a)]
+
 #endif /* Common_h */

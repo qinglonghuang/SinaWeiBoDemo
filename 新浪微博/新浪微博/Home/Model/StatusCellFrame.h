@@ -25,6 +25,7 @@
 
 @property (nonatomic, readonly) CGRect iconViewFrame;                       // 头像
 @property (nonatomic, readonly) CGRect screenNameLabelFrame;                // 昵称
+@property (nonatomic, readonly) CGRect mbViewFrame;                         // 会员图标
 @property (nonatomic, readonly) CGRect timeLabelFrame;                      // 时间
 @property (nonatomic, readonly) CGRect sourceLabelFrame;                    // 来源
 @property (nonatomic, readonly) CGRect textLabelFrame;                      // 内容

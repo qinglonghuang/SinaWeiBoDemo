@@ -23,6 +23,7 @@
 		F99324861CD6009400BA4211 /* StatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F99324851CD6009400BA4211 /* StatusCell.m */; };
 		F99E1AB91CA431E400DBF4C8 /* UIImage+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = F99E1AB81CA431E400DBF4C8 /* UIImage+Ext.m */; };
 		F99E1ABC1CA44B9E00DBF4C8 /* GroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F99E1ABB1CA44B9E00DBF4C8 /* GroupCell.m */; };
+		F9BEAA511CD752B2006303AB /* IconView.m in Sources */ = {isa = PBXBuildFile; fileRef = F9BEAA501CD752B2006303AB /* IconView.m */; };
 		F9D82F111CCC736F00CD85B4 /* WeiboHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = F9D82F101CCC736F00CD85B4 /* WeiboHttpTool.m */; };
 		F9F1A7371C8BE70F0030F15F /* MoreController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9F1A7361C8BE70F0030F15F /* MoreController.m */; };
 		F9F1A73A1C8BE73B0030F15F /* SquareController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9F1A7391C8BE73B0030F15F /* SquareController.m */; };
@@ -74,6 +75,8 @@
 		F99E1ABA1CA44B9E00DBF4C8 /* GroupCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupCell.h; sourceTree = "<group>"; };
 		F99E1ABB1CA44B9E00DBF4C8 /* GroupCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupCell.m; sourceTree = "<group>"; };
 		F9B4E00A1C7CB42A00962566 /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
+		F9BEAA4F1CD752B2006303AB /* IconView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IconView.h; sourceTree = "<group>"; };
+		F9BEAA501CD752B2006303AB /* IconView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IconView.m; sourceTree = "<group>"; };
 		F9D82F0F1CCC736F00CD85B4 /* WeiboHttpTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboHttpTool.h; sourceTree = "<group>"; };
 		F9D82F101CCC736F00CD85B4 /* WeiboHttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiboHttpTool.m; sourceTree = "<group>"; };
 		F9F1A7351C8BE70F0030F15F /* MoreController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreController.h; sourceTree = "<group>"; };
@@ -278,6 +281,8 @@
 			children = (
 				F99324841CD6009400BA4211 /* StatusCell.h */,
 				F99324851CD6009400BA4211 /* StatusCell.m */,
+				F9BEAA4F1CD752B2006303AB /* IconView.h */,
+				F9BEAA501CD752B2006303AB /* IconView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -309,8 +314,8 @@
 		F9F1A7211C8BE6950030F15F /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				F99324831CD6007D00BA4211 /* View */,
 				F9F6F6B31CCD12BE00869E35 /* Tool */,
+				F99324831CD6007D00BA4211 /* View */,
 				F9F1A7221C8BE6950030F15F /* Contoller */,
 				F9F1A7231C8BE6950030F15F /* Model */,
 			);
@@ -625,6 +630,7 @@
 				F9F6F6B61CCD12D400869E35 /* StatusTool.m in Sources */,
 				F9F1A7461C8BEE000030F15F /* DockController.m in Sources */,
 				F9F81D1E1CC345040057F378 /* OauthAccount.m in Sources */,
+				F9BEAA511CD752B2006303AB /* IconView.m in Sources */,
 				F9F1A73D1C8BE7670030F15F /* MeController.m in Sources */,
 				F9F6F6AC1CCCDB7400869E35 /* BaseUITableViewController.m in Sources */,
 				F913F45A1C7A166D0074AD40 /* MainViewController.m in Sources */,

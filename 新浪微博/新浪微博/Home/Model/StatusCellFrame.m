@@ -7,6 +7,10 @@
 //
 
 #import "StatusCellFrame.h"
+#import "IconView.h"
+
+#define kMBIconW    14.0f
+#define kMBIconH    14.0f
 
 static const CGFloat kCellBorderOffset = 10.0f;
 
@@ -22,7 +26,8 @@ static const CGFloat kCellBorderOffset = 10.0f;
     // 1.头像
     CGFloat iconX = kCellBorderOffset;
     CGFloat iconY = kCellBorderOffset;
-    _iconViewFrame = CGRectMake(iconX, iconY, 50.0f, 50.0f);
+    CGSize iconSize = [IconView sizeWithType:kIconTypeSmall];
+    _iconViewFrame = CGRectMake(iconX, iconY, iconSize.width, iconSize.height);
     
     // 2.昵称
     CGFloat screenNameX = CGRectGetMaxX(_iconViewFrame) + kCellBorderOffset;
@@ -32,6 +37,13 @@ static const CGFloat kCellBorderOffset = 10.0f;
                                                                attributes:@{NSFontAttributeName:kScreenNameFont}
                                                                   context:nil].size;
     _screenNameLabelFrame = (CGRect){{screenNameX, screenNameY}, screenNameSize};
+    
+    // 会员图标
+    if (status.user.mbtype != kMBTypeNone) {
+        CGFloat mbViewX = CGRectGetMaxX(_screenNameLabelFrame) + kCellBorderOffset;
+        CGFloat mbViewY = screenNameY + (screenNameSize.height - kMBIconH) * 0.5f;
+        _mbViewFrame = CGRectMake(mbViewX, mbViewY, kMBIconW, kMBIconH);
+    }
     
     // 3.时间
     CGFloat timeX = screenNameX;
@@ -49,7 +61,8 @@ static const CGFloat kCellBorderOffset = 10.0f;
     
     // 5.内容
     CGFloat textX = iconX;
-    CGFloat textY = CGRectGetMaxY(_sourceLabelFrame) + kCellBorderOffset;
+    CGFloat maxY = MAX(CGRectGetMaxY(_sourceLabelFrame), CGRectGetMaxY(_iconViewFrame));
+    CGFloat textY = maxY + kCellBorderOffset;
     CGSize textSize = [status.text boundingRectWithSize:CGSizeMake((cellW - 2 * kCellBorderOffset), MAXFLOAT)
                                                 options:NSStringDrawingUsesLineFragmentOrigin
                                              attributes:@{NSFontAttributeName:kTextFont}
