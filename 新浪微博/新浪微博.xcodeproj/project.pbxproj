@@ -38,6 +38,7 @@
 		F9F81D1E1CC345040057F378 /* OauthAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = F9F81D1D1CC345040057F378 /* OauthAccount.m */; };
 		F9F81D211CC359870057F378 /* HQLSandboxUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = F9F81D201CC359870057F378 /* HQLSandboxUtils.m */; };
 		F9F81D241CC366370057F378 /* NSObject+JMSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = F9F81D231CC366370057F378 /* NSObject+JMSerializer.m */; };
+		F9F8A99E1CDDD59F00A3FE6B /* ImageListView.m in Sources */ = {isa = PBXBuildFile; fileRef = F9F8A99D1CDDD59F00A3FE6B /* ImageListView.m */; };
 		F9FB51D81CD6608700562D8E /* StatusCellFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = F9FB51D71CD6608700562D8E /* StatusCellFrame.m */; };
 /* End PBXBuildFile section */
 
@@ -105,6 +106,8 @@
 		F9F81D201CC359870057F378 /* HQLSandboxUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HQLSandboxUtils.m; sourceTree = "<group>"; };
 		F9F81D221CC366370057F378 /* NSObject+JMSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+JMSerializer.h"; sourceTree = "<group>"; };
 		F9F81D231CC366370057F378 /* NSObject+JMSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+JMSerializer.m"; sourceTree = "<group>"; };
+		F9F8A99C1CDDD59F00A3FE6B /* ImageListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageListView.h; sourceTree = "<group>"; };
+		F9F8A99D1CDDD59F00A3FE6B /* ImageListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageListView.m; sourceTree = "<group>"; };
 		F9FB51D61CD6608700562D8E /* StatusCellFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusCellFrame.h; sourceTree = "<group>"; };
 		F9FB51D71CD6608700562D8E /* StatusCellFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusCellFrame.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -283,6 +286,8 @@
 				F99324851CD6009400BA4211 /* StatusCell.m */,
 				F9BEAA4F1CD752B2006303AB /* IconView.h */,
 				F9BEAA501CD752B2006303AB /* IconView.m */,
+				F9F8A99C1CDDD59F00A3FE6B /* ImageListView.h */,
+				F9F8A99D1CDDD59F00A3FE6B /* ImageListView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -635,6 +640,7 @@
 				F9F6F6AC1CCCDB7400869E35 /* BaseUITableViewController.m in Sources */,
 				F913F45A1C7A166D0074AD40 /* MainViewController.m in Sources */,
 				F913F4571C7A166D0074AD40 /* AppDelegate.m in Sources */,
+				F9F8A99E1CDDD59F00A3FE6B /* ImageListView.m in Sources */,
 				F985EAFF1CC68F5100C5CBC9 /* HQLHttpUtils.m in Sources */,
 				F9FB51D81CD6608700562D8E /* StatusCellFrame.m in Sources */,
 				F9F1A7401C8BE7930030F15F /* MessageController.m in Sources */,

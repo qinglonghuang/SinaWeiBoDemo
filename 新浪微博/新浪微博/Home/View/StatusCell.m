@@ -10,11 +10,17 @@
 #import <UIImageView+WebCache.h>
 #import "IconView.h"
 #import "Common.h"
+#import "UIImage+Ext.h"
+#import "ImageListView.h"
 
+// 时间颜色
+#define kTimeColor                  RGB(246, 165, 68)
 // 会员昵称颜色
-#define kMBScreenNameColor      RGB(243, 101, 18)
+#define kMBScreenNameColor          RGB(243, 101, 18)
 // 非会员昵称颜色
-#define kScreenNameColor        RGB(93, 93, 93)
+#define kScreenNameColor            RGB(93, 93, 93)
+// 被转发微博昵称颜色
+#define kReweetedScreenNameColor    RGB(63, 104, 161)
 
 @interface StatusCell ()
 {
@@ -24,12 +30,12 @@
     UILabel *_timeLabel;                // 时间
     UILabel *_sourceLabel;              // 来源
     UILabel *_textLabel;                // 内容
-    UIImageView *_imageView;            // 配图
+    ImageListView *_imageListView;            // 配图
     
     UIImageView *_retweetedContainer;   // 被转发微博的父控件
     UILabel *_retweetedScreenNameLabel; // 被转发微博作者的昵称
     UILabel *_retweetedTextLabel;       // 被转发微博的内容
-    UIImageView *_retweetedImageView;   // 被转发微博的配图
+    ImageListView *_retweetedImageListView;   // 被转发微博的配图
 }
 @end
 
@@ -69,6 +75,7 @@
     // 3.时间
     _timeLabel = [[UILabel alloc] init];
     _timeLabel.font = kTimeFont;
+    [_timeLabel setTextColor:kTimeColor];
     [self.contentView addSubview:_timeLabel];
     
     // 4.来源
@@ -83,8 +90,8 @@
     [self.contentView addSubview:_textLabel];
     
     // 6.配图
-    _imageView = [[UIImageView alloc] init];
-    [self.contentView addSubview:_imageView];
+    _imageListView = [[ImageListView alloc] init];
+    [self.contentView addSubview:_imageListView];
     
 }
 
@@ -93,11 +100,13 @@
 {
     // 1.被转发微博的父控件
     _retweetedContainer = [[UIImageView alloc] init];
+    [_retweetedContainer setImage:[UIImage resizedImage:@"timeline_retweet_background" xPos:0.9f yPos:0.5f]];
     [self.contentView addSubview:_retweetedContainer];
     
     // 2.被转发微博作者的昵称
     _retweetedScreenNameLabel = [[UILabel alloc] init];
     _retweetedScreenNameLabel.font = kRetweetedScreenNameFont;
+    _retweetedScreenNameLabel.textColor = kReweetedScreenNameColor;
     [_retweetedContainer addSubview:_retweetedScreenNameLabel];
     
     // 3.被转发微博的内容
@@ -107,8 +116,8 @@
     [_retweetedContainer addSubview:_retweetedTextLabel];
     
     // 4.被转发微博的配图
-    _retweetedImageView = [[UIImageView alloc] init];
-    [_retweetedContainer addSubview:_retweetedImageView];
+    _retweetedImageListView = [[ImageListView alloc] init];
+    [_retweetedContainer addSubview:_retweetedImageListView];
     
 }
 
@@ -140,14 +149,7 @@
     
     // 4.来源
     _sourceLabel.frame = statusCellFrame.sourceLabelFrame;
-    NSRange sourceBeginR = [s.source rangeOfString:@"rel=\"nofollow\">"];
-    NSRange sourceEndR = [s.source rangeOfString:@"</a>"];
-    if ((sourceBeginR.length > 0) && (sourceEndR.length > 0)) {
-        NSRange sourceR = NSMakeRange(sourceBeginR.location + sourceBeginR.length, (sourceEndR.location - (sourceBeginR.location + sourceBeginR.length)));
-        _sourceLabel.text = [s.source substringWithRange:sourceR];
-    } else {
-        _sourceLabel.text = s.source;
-    }
+    _sourceLabel.text = s.source;
     
     // 5.内容
     _textLabel.frame = statusCellFrame.textLabelFrame;
@@ -155,14 +157,11 @@
     
     // 6.配图
     if (s.pic_urls.count > 0) {
-        _imageView.hidden = NO;
-        _imageView.frame = statusCellFrame.imageViewFrame;
-        
-        [_imageView sd_setImageWithURL:[NSURL URLWithString:s.pic_urls[0][@"thumbnail_pic"]]
-                     placeholderImage:[UIImage imageNamed:@"tabbar_profile_selected"]
-                              options:(SDWebImageLowPriority | SDWebImageRetryFailed)];
+        _imageListView.hidden = NO;
+        _imageListView.frame = statusCellFrame.imageListViewFrame;
+        _imageListView.picUrls = s.pic_urls;
     } else {
-        _imageView.hidden = YES;
+        _imageListView.hidden = YES;
     }
     
     // 7. 被转发微博
@@ -180,14 +179,11 @@
         
         // 配图
         if (s.retweeted_status.pic_urls.count > 0) {
-            _retweetedImageView.hidden = NO;
-            _retweetedImageView.frame = statusCellFrame.retweetedImageViewFrame;
-            
-            [_retweetedImageView sd_setImageWithURL:[NSURL URLWithString:s.retweeted_status.pic_urls[0][@"thumbnail_pic"]]
-                          placeholderImage:[UIImage imageNamed:@"tabbar_profile_selected"]
-                                   options:(SDWebImageLowPriority | SDWebImageRetryFailed)];
+            _retweetedImageListView.hidden = NO;
+            _retweetedImageListView.frame = statusCellFrame.retweetedImageListViewFrame;
+            _retweetedImageListView.picUrls = s.retweeted_status.pic_urls;
         } else {
-            _retweetedImageView.hidden = YES;
+            _retweetedImageListView.hidden = YES;
         }
         
     } else {

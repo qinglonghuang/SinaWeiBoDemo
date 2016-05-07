@@ -27,6 +27,8 @@
     UIImageView *_profileView;
     // 右下角的认证图标
     UIImageView *_verifyView;
+    // 用户头像占位视图
+    NSString *_profilePlaceHolder;
 }
 
 @end
@@ -53,6 +55,7 @@
 #pragma mark 设置用户和类型(但是设置顺序要严格按照先设置类型再设置用户)
 - (void)setUser:(User *)user iconType:(IconType)type
 {
+    // 需要设置用户类型才能去设置用户，因为设置用户需要改变类型中的一些定制信息
     // 1.设置类型
     [self setType:type];
     // 2.设置用户
@@ -65,7 +68,7 @@
     
     // 1.设置用户头像图片
     [_profileView sd_setImageWithURL:[NSURL URLWithString:user.profile_image_url]
-                    placeholderImage:[UIImage imageNamed:@"tabbar_profile_selected"]
+                    placeholderImage:[UIImage imageNamed:_profilePlaceHolder]
                              options:(SDWebImageRetryFailed | SDWebImageLowPriority)];
     
     // 2.设置认证图标
@@ -101,12 +104,15 @@
     switch (type) {
         case kIconTypeSmall:
             iconSize = CGSizeMake(kIconSmallW, kIconsmallH);
+            _profilePlaceHolder = @"avatar_default_small";
             break;
         case kIconTypeDefault:
             iconSize = CGSizeMake(kIconDefaultW, kIconDefaultH);
+            _profilePlaceHolder = @"avatar_default";
             break;
         case kIconTypeBig:
             iconSize = CGSizeMake(kIconBigW, kIconBigH);
+            _profilePlaceHolder = @"avatar_default_big";
             break;
     }
     

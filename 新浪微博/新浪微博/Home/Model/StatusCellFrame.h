@@ -29,11 +29,11 @@
 @property (nonatomic, readonly) CGRect timeLabelFrame;                      // 时间
 @property (nonatomic, readonly) CGRect sourceLabelFrame;                    // 来源
 @property (nonatomic, readonly) CGRect textLabelFrame;                      // 内容
-@property (nonatomic, readonly) CGRect imageViewFrame;                      // 配图
+@property (nonatomic, readonly) CGRect imageListViewFrame;                      // 配图
 
 @property (nonatomic, readonly) CGRect retweetedContainerFrame;             // 被转发微博的父控件
 @property (nonatomic, readonly) CGRect retweetedScreenNameLabelFrame;       // 被转发微博作者的昵称
 @property (nonatomic, readonly) CGRect retweetedTextLabelFrame;             // 被转发微博的内容
-@property (nonatomic, readonly) CGRect retweetedImageViewFrame;             // 被转发微博的配图
+@property (nonatomic, readonly) CGRect retweetedImageListViewFrame;             // 被转发微博的配图
 
 @end

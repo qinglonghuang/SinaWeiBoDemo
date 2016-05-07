@@ -11,12 +11,23 @@
 @interface UIImage (Ext)
 
 /**
- *  以中心一个像素点拉伸图片
+ *  以中心一个像素点向右拉伸图片
  *
  *  @param name 图片名
  *
  *  @return 返回拉伸后的图片
  */
 + (UIImage *)resizedImage:(NSString *)name;
+
+/**
+ *  以指定像素点向右拉伸图片
+ *
+ *  @param name 图片名
+ *  @param xPos 拉伸起始点的X比例
+ *  @param yPos 拉伸起始点的Y比例
+ *
+ *  @return 返回拉伸后的图片
+ */
++ (UIImage *)resizedImage:(NSString *)name xPos:(CGFloat)xPos yPos:(CGFloat)yPos;
 
 @end

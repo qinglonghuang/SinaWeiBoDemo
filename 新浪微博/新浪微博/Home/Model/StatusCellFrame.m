@@ -8,6 +8,7 @@
 
 #import "StatusCellFrame.h"
 #import "IconView.h"
+#import "ImageListView.h"
 
 #define kMBIconW    14.0f
 #define kMBIconH    14.0f
@@ -48,16 +49,16 @@ static const CGFloat kCellBorderOffset = 10.0f;
     // 3.时间
     CGFloat timeX = screenNameX;
     CGFloat timeY = CGRectGetMaxY(_screenNameLabelFrame) + kCellBorderOffset;
-//    CGSize timeSize = [status.created_at boundingRectWithSize:CGSizeMake((cellW - timeX) / 2, MAXFLOAT)
-//                                                            options:NSStringDrawingUsesLineFragmentOrigin
-//                                                         attributes:@{NSFontAttributeName:kTimeFont}
-//                                                            context:nil].size;
-    _timeLabelFrame = (CGRect){{timeX, timeY}, ((cellW - timeX) / 2), kTimeFont.lineHeight};
+    CGSize timeSize = [status.created_at boundingRectWithSize:CGSizeMake((cellW - timeX) / 2, MAXFLOAT)
+                                                            options:NSStringDrawingUsesLineFragmentOrigin
+                                                         attributes:@{NSFontAttributeName:kTimeFont}
+                                                            context:nil].size;
+    _timeLabelFrame = (CGRect){{timeX, timeY}, timeSize};
     
     // 4.来源
     CGFloat sourceX = CGRectGetMaxX(_timeLabelFrame) + kCellBorderOffset;
     CGFloat sourceY = timeY;
-    _sourceLabelFrame = (CGRect){{sourceX, sourceY}, ((cellW - timeX) / 2), kSourceFont.lineHeight};
+    _sourceLabelFrame = (CGRect){{sourceX, sourceY}, (cellW - sourceX - kCellBorderOffset), kSourceFont.lineHeight};
     
     // 5.内容
     CGFloat textX = iconX;
@@ -73,8 +74,8 @@ static const CGFloat kCellBorderOffset = 10.0f;
         // 6.配图
         CGFloat imageX = textX;
         CGFloat imageY = CGRectGetMaxY(_textLabelFrame) + kCellBorderOffset;
-        CGFloat imageW = 150.0f;//cellW - 2 * kCellBorderOffset;
-        _imageViewFrame = CGRectMake(imageX, imageY, imageW, imageW);
+        CGSize size = [ImageListView sizeWithCount:status.pic_urls.count];
+        _imageListViewFrame = CGRectMake(imageX, imageY, size.width, size.height);
     } else if (status.retweeted_status) {
         // 7.有转发的微博
         // 被转发微博父控件
@@ -86,7 +87,7 @@ static const CGFloat kCellBorderOffset = 10.0f;
         // 7.1 被转发微博的昵称
         CGFloat retweetedScreenNameX = kCellBorderOffset;
         CGFloat retweetedScreenNameY = kCellBorderOffset;
-        CGSize retweetedScreenNameSize = [status.retweeted_status.user.screen_name boundingRectWithSize:CGSizeMake((cellW - 2 * kCellBorderOffset), MAXFLOAT)
+        CGSize retweetedScreenNameSize = [status.retweeted_status.user.screen_name boundingRectWithSize:CGSizeMake((retweetedContainerW - 2 * kCellBorderOffset), MAXFLOAT)
                                                                    options:NSStringDrawingUsesLineFragmentOrigin
                                                                 attributes:@{NSFontAttributeName:kRetweetedScreenNameFont}
                                                                    context:nil].size;
@@ -95,7 +96,7 @@ static const CGFloat kCellBorderOffset = 10.0f;
         // 7.2 被转发微博的内容
         CGFloat retweetedTextX = retweetedScreenNameX;
         CGFloat retweetedTextY = CGRectGetMaxY(_retweetedScreenNameLabelFrame) + kCellBorderOffset;
-        CGSize retweetedTextSize = [status.retweeted_status.text boundingRectWithSize:CGSizeMake((cellW - 2 * kCellBorderOffset), MAXFLOAT)
+        CGSize retweetedTextSize = [status.retweeted_status.text boundingRectWithSize:CGSizeMake((retweetedContainerW - 2 * kCellBorderOffset), MAXFLOAT)
                                                                    options:NSStringDrawingUsesLineFragmentOrigin
                                                                 attributes:@{NSFontAttributeName:kRetweetedTextFont}
                                                                    context:nil].size;
@@ -105,9 +106,9 @@ static const CGFloat kCellBorderOffset = 10.0f;
         if (status.retweeted_status.pic_urls.count > 0) {
             CGFloat retweetedImageX = retweetedTextX;
             CGFloat retweetedImageY = CGRectGetMaxY(_retweetedTextLabelFrame) + kCellBorderOffset;
-            CGFloat retweetedImageW = 150.0f;//cellW - 2 * kCellBorderOffset;
-            _retweetedImageViewFrame = CGRectMake(retweetedImageX, retweetedImageY, retweetedImageW, retweetedImageW);
-            retweetedContainerH += CGRectGetMaxY(_retweetedImageViewFrame);
+            CGSize size = [ImageListView sizeWithCount:status.retweeted_status.pic_urls.count];
+            _retweetedImageListViewFrame = CGRectMake(retweetedImageX, retweetedImageY, size.width, size.height);
+            retweetedContainerH += CGRectGetMaxY(_retweetedImageListViewFrame);
         } else {
             retweetedContainerH += CGRectGetMaxY(_retweetedTextLabelFrame);
         }
@@ -119,7 +120,7 @@ static const CGFloat kCellBorderOffset = 10.0f;
     // 8.整个cell的高度
     _cellHeight = kCellBorderOffset;
     if (status.pic_urls.count > 0) {
-        _cellHeight += CGRectGetMaxY(_imageViewFrame);
+        _cellHeight += CGRectGetMaxY(_imageListViewFrame);
     } else if (status.retweeted_status) {
         _cellHeight += CGRectGetMaxY(_retweetedContainerFrame);
     } else {
