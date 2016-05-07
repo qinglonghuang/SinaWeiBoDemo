@@ -7,7 +7,6 @@
 //
 
 #import "StatusCell.h"
-#import <UIImageView+WebCache.h>
 #import "IconView.h"
 #import "Common.h"
 #import "UIImage+Ext.h"

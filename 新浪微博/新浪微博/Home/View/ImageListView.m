@@ -7,7 +7,7 @@
 //
 
 #import "ImageListView.h"
-#import <UIImageView+WebCache.h>
+#import "ImageItemView.h"
 
 static const NSInteger kImageCntMax = 9;
 
@@ -31,7 +31,7 @@ static const CGFloat kMargin = 6.0f;
     
     if (self) {
         for (NSInteger i = 0; i < kImageCntMax; i++) {
-            UIImageView *imageView = [[UIImageView alloc] init];
+            ImageItemView *imageView = [[ImageItemView alloc] init];
             [imageView setContentMode:UIViewContentModeScaleAspectFill];
             [imageView setClipsToBounds:YES];
             [self addSubview:imageView];
@@ -48,22 +48,20 @@ static const CGFloat kMargin = 6.0f;
     
     NSInteger count = picUrls.count;
     for (NSInteger i = 0; i < self.subviews.count; i++) {
-        UIImageView *imageView = self.subviews[i];
+        ImageItemView *itemView = self.subviews[i];
         if (i >= count) {
-            imageView.hidden = YES;
+            itemView.hidden = YES;
         } else {
-            imageView.hidden = NO;
-            [imageView sd_setImageWithURL:picUrls[i][@"thumbnail_pic"]
-                         placeholderImage:[UIImage imageNamed:@"tabbar_profile_selected"]
-                                  options:(SDWebImageLowPriority | SDWebImageRetryFailed)];
+            itemView.hidden = NO;
+            [itemView setUrl:picUrls[i][@"thumbnail_pic"]];
             
             if (count == 1) {
-                imageView.frame = CGRectMake(0, 0, kOneW, kOneH);
+                itemView.frame = CGRectMake(0, 0, kOneW, kOneH);
                 continue;
             }
             
             NSInteger column = (count == 4) ? 2 : 3;
-            imageView.frame = CGRectMake((i % column) * (kMultiW + kMargin), (i / column) * (kMultiH + kMargin), kMultiW, kMultiH);
+            itemView.frame = CGRectMake((i % column) * (kMultiW + kMargin), (i / column) * (kMultiH + kMargin), kMultiW, kMultiH);
         }
         
     }

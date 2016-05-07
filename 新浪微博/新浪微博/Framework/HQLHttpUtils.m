@@ -8,6 +8,7 @@
 
 #import "HQLHttpUtils.h"
 #import <AFNetworking.h>
+#import <UIImageView+WebCache.h>
 
 @implementation HQLHttpUtils
 
@@ -47,6 +48,18 @@
        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
               failure(error);
        }];
+}
+
+#pragma mark 下载网络图片并设置到ImageView
++ (void)downloadImageWithUrl:(NSString * _Nonnull)url
+                 placeHolder:(NSString * _Nullable)place
+                   imageView:(UIImageView * _Nonnull)imageView
+{
+    if (imageView && url) {
+        [imageView sd_setImageWithURL:[NSURL URLWithString:url]
+                     placeholderImage:[UIImage imageNamed:place]
+                              options:(SDWebImageLowPriority | SDWebImageRetryFailed)];
+    }
 }
 
 @end

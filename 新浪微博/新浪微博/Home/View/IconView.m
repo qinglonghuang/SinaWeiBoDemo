@@ -7,7 +7,7 @@
 //
 
 #import "IconView.h"
-#import <UIImageView+WebCache.h>
+#import "HQLHttpUtils.h"
 
 #define kIconSmallW     34.0f
 #define kIconsmallH     34.0f
@@ -67,9 +67,7 @@
     _user = user;
     
     // 1.设置用户头像图片
-    [_profileView sd_setImageWithURL:[NSURL URLWithString:user.profile_image_url]
-                    placeholderImage:[UIImage imageNamed:_profilePlaceHolder]
-                             options:(SDWebImageRetryFailed | SDWebImageLowPriority)];
+    [HQLHttpUtils downloadImageWithUrl:user.profile_image_url placeHolder:_profilePlaceHolder imageView:_profileView];
     
     // 2.设置认证图标
     NSString *verifyIconName = nil;

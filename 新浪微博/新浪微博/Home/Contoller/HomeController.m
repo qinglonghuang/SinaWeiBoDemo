@@ -8,7 +8,6 @@
 
 #import "HomeController.h"
 #import <Masonry.h>
-#import <UIImageView+WebCache.h>
 #import "Common.h"
 #import "UIImage+Ext.h"
 #import "StatusTool.h"

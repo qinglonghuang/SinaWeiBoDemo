@@ -39,6 +39,7 @@
 		F9F81D211CC359870057F378 /* HQLSandboxUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = F9F81D201CC359870057F378 /* HQLSandboxUtils.m */; };
 		F9F81D241CC366370057F378 /* NSObject+JMSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = F9F81D231CC366370057F378 /* NSObject+JMSerializer.m */; };
 		F9F8A99E1CDDD59F00A3FE6B /* ImageListView.m in Sources */ = {isa = PBXBuildFile; fileRef = F9F8A99D1CDDD59F00A3FE6B /* ImageListView.m */; };
+		F9F8A9A11CDE0E1800A3FE6B /* ImageItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = F9F8A9A01CDE0E1800A3FE6B /* ImageItemView.m */; };
 		F9FB51D81CD6608700562D8E /* StatusCellFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = F9FB51D71CD6608700562D8E /* StatusCellFrame.m */; };
 /* End PBXBuildFile section */
 
@@ -108,6 +109,8 @@
 		F9F81D231CC366370057F378 /* NSObject+JMSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+JMSerializer.m"; sourceTree = "<group>"; };
 		F9F8A99C1CDDD59F00A3FE6B /* ImageListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageListView.h; sourceTree = "<group>"; };
 		F9F8A99D1CDDD59F00A3FE6B /* ImageListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageListView.m; sourceTree = "<group>"; };
+		F9F8A99F1CDE0E1800A3FE6B /* ImageItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageItemView.h; sourceTree = "<group>"; };
+		F9F8A9A01CDE0E1800A3FE6B /* ImageItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageItemView.m; sourceTree = "<group>"; };
 		F9FB51D61CD6608700562D8E /* StatusCellFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusCellFrame.h; sourceTree = "<group>"; };
 		F9FB51D71CD6608700562D8E /* StatusCellFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusCellFrame.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -288,6 +291,8 @@
 				F9BEAA501CD752B2006303AB /* IconView.m */,
 				F9F8A99C1CDDD59F00A3FE6B /* ImageListView.h */,
 				F9F8A99D1CDDD59F00A3FE6B /* ImageListView.m */,
+				F9F8A99F1CDE0E1800A3FE6B /* ImageItemView.h */,
+				F9F8A9A01CDE0E1800A3FE6B /* ImageItemView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -627,6 +632,7 @@
 				F9F1A73A1C8BE73B0030F15F /* SquareController.m in Sources */,
 				F99E1ABC1CA44B9E00DBF4C8 /* GroupCell.m in Sources */,
 				F9F81D211CC359870057F378 /* HQLSandboxUtils.m in Sources */,
+				F9F8A9A11CDE0E1800A3FE6B /* ImageItemView.m in Sources */,
 				F99324861CD6009400BA4211 /* StatusCell.m in Sources */,
 				F95B04C61C85DDBE00488287 /* DockItem.m in Sources */,
 				F99E1AB91CA431E400DBF4C8 /* UIImage+Ext.m in Sources */,
