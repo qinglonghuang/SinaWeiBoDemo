@@ -20,6 +20,9 @@ typedef void (^StatusFailBlock)(NSError *error);
  *  @param success 成功块代码
  *  @param failure 失败块代码
  */
-+ (void)statusesWithSuccess:(StatusSuccessBlock)success failure:(StatusFailBlock)failure;
++ (void)statusesWithSinceID:(long long)sinceID
+                      maxID:(long long)maxID
+                    success:(StatusSuccessBlock)success
+                    failure:(StatusFailBlock)failure;
 
 @end

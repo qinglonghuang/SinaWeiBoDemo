@@ -10,13 +10,17 @@
 		DCE4022ABC9453EE7550561B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 33898B9D915334AD60C348A1 /* libPods.a */; };
 		F913F4541C7A166D0074AD40 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F913F4531C7A166D0074AD40 /* main.m */; };
 		F913F4571C7A166D0074AD40 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F913F4561C7A166D0074AD40 /* AppDelegate.m */; };
-		F913F45A1C7A166D0074AD40 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F913F4591C7A166D0074AD40 /* MainViewController.m */; };
 		F913F45F1C7A166D0074AD40 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F913F45E1C7A166D0074AD40 /* Assets.xcassets */; };
 		F913F4621C7A166D0074AD40 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F913F4601C7A166D0074AD40 /* LaunchScreen.storyboard */; };
 		F913F46D1C7A1B550074AD40 /* NewFeaturesController.m in Sources */ = {isa = PBXBuildFile; fileRef = F913F46C1C7A1B550074AD40 /* NewFeaturesController.m */; };
 		F94338C41CDF2C490079CAD7 /* StatusDock.m in Sources */ = {isa = PBXBuildFile; fileRef = F94338C31CDF2C490079CAD7 /* StatusDock.m */; };
 		F95B04C31C85DD9A00488287 /* Dock.m in Sources */ = {isa = PBXBuildFile; fileRef = F95B04C21C85DD9A00488287 /* Dock.m */; };
 		F95B04C61C85DDBE00488287 /* DockItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F95B04C51C85DDBE00488287 /* DockItem.m */; };
+		F9827C391CDF6E94003B498C /* MJRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F9827C311CDF6E94003B498C /* MJRefresh.bundle */; };
+		F9827C3A1CDF6E94003B498C /* MJRefreshBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = F9827C341CDF6E94003B498C /* MJRefreshBaseView.m */; };
+		F9827C3B1CDF6E94003B498C /* MJRefreshFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = F9827C361CDF6E94003B498C /* MJRefreshFooterView.m */; };
+		F9827C3C1CDF6E94003B498C /* MJRefreshHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = F9827C381CDF6E94003B498C /* MJRefreshHeaderView.m */; };
+		F9827C3F1CDF7A7F003B498C /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9827C3E1CDF7A7F003B498C /* MainViewController.m */; };
 		F985EAFF1CC68F5100C5CBC9 /* HQLHttpUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = F985EAFE1CC68F5100C5CBC9 /* HQLHttpUtils.m */; };
 		F988076F1C8F33610083C16C /* More.plist in Resources */ = {isa = PBXBuildFile; fileRef = F988076E1C8F33610083C16C /* More.plist */; };
 		F98923041CA82F5F00C798B9 /* OauthController.m in Sources */ = {isa = PBXBuildFile; fileRef = F98923031CA82F5F00C798B9 /* OauthController.m */; };
@@ -52,8 +56,6 @@
 		F913F4531C7A166D0074AD40 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F913F4551C7A166D0074AD40 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F913F4561C7A166D0074AD40 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		F913F4581C7A166D0074AD40 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MainViewController.h; path = ../../MainViewController.h; sourceTree = "<group>"; };
-		F913F4591C7A166D0074AD40 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MainViewController.m; path = ../../MainViewController.m; sourceTree = "<group>"; };
 		F913F45E1C7A166D0074AD40 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "新浪微博/Assets.xcassets"; sourceTree = "<group>"; };
 		F913F4611C7A166D0074AD40 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F913F4631C7A166D0074AD40 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -65,6 +67,16 @@
 		F95B04C21C85DD9A00488287 /* Dock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dock.m; sourceTree = "<group>"; };
 		F95B04C41C85DDBE00488287 /* DockItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockItem.h; sourceTree = "<group>"; };
 		F95B04C51C85DDBE00488287 /* DockItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockItem.m; sourceTree = "<group>"; };
+		F9827C311CDF6E94003B498C /* MJRefresh.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MJRefresh.bundle; sourceTree = "<group>"; };
+		F9827C321CDF6E94003B498C /* MJRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefresh.h; sourceTree = "<group>"; };
+		F9827C331CDF6E94003B498C /* MJRefreshBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshBaseView.h; sourceTree = "<group>"; };
+		F9827C341CDF6E94003B498C /* MJRefreshBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshBaseView.m; sourceTree = "<group>"; };
+		F9827C351CDF6E94003B498C /* MJRefreshFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshFooterView.h; sourceTree = "<group>"; };
+		F9827C361CDF6E94003B498C /* MJRefreshFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshFooterView.m; sourceTree = "<group>"; };
+		F9827C371CDF6E94003B498C /* MJRefreshHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshHeaderView.h; sourceTree = "<group>"; };
+		F9827C381CDF6E94003B498C /* MJRefreshHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshHeaderView.m; sourceTree = "<group>"; };
+		F9827C3D1CDF7A7F003B498C /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainViewController.h; path = "新浪微博/Main/MainViewController.h"; sourceTree = SOURCE_ROOT; };
+		F9827C3E1CDF7A7F003B498C /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainViewController.m; path = "新浪微博/Main/MainViewController.m"; sourceTree = SOURCE_ROOT; };
 		F985EAFD1CC68F5100C5CBC9 /* HQLHttpUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HQLHttpUtils.h; sourceTree = "<group>"; };
 		F985EAFE1CC68F5100C5CBC9 /* HQLHttpUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HQLHttpUtils.m; sourceTree = "<group>"; };
 		F988076E1C8F33610083C16C /* More.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = More.plist; sourceTree = "<group>"; };
@@ -228,8 +240,8 @@
 		F95B04BF1C85DCFE00488287 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				F913F4581C7A166D0074AD40 /* MainViewController.h */,
-				F913F4591C7A166D0074AD40 /* MainViewController.m */,
+				F9827C3D1CDF7A7F003B498C /* MainViewController.h */,
+				F9827C3E1CDF7A7F003B498C /* MainViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -245,6 +257,21 @@
 				F9F1A7451C8BEE000030F15F /* DockController.m */,
 			);
 			path = Dock;
+			sourceTree = "<group>";
+		};
+		F9827C301CDF6E94003B498C /* MJRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				F9827C311CDF6E94003B498C /* MJRefresh.bundle */,
+				F9827C321CDF6E94003B498C /* MJRefresh.h */,
+				F9827C331CDF6E94003B498C /* MJRefreshBaseView.h */,
+				F9827C341CDF6E94003B498C /* MJRefreshBaseView.m */,
+				F9827C351CDF6E94003B498C /* MJRefreshFooterView.h */,
+				F9827C361CDF6E94003B498C /* MJRefreshFooterView.m */,
+				F9827C371CDF6E94003B498C /* MJRefreshHeaderView.h */,
+				F9827C381CDF6E94003B498C /* MJRefreshHeaderView.m */,
+			);
+			path = MJRefresh;
 			sourceTree = "<group>";
 		};
 		F988076D1C8F33460083C16C /* Data */ = {
@@ -305,6 +332,7 @@
 		F99E1AB61CA4318100DBF4C8 /* Framework */ = {
 			isa = PBXGroup;
 			children = (
+				F9827C301CDF6E94003B498C /* MJRefresh */,
 				F9F81D221CC366370057F378 /* NSObject+JMSerializer.h */,
 				F9F81D231CC366370057F378 /* NSObject+JMSerializer.m */,
 				F99E1AB71CA431E400DBF4C8 /* UIImage+Ext.h */,
@@ -573,6 +601,7 @@
 			files = (
 				F988076F1C8F33610083C16C /* More.plist in Resources */,
 				F913F4621C7A166D0074AD40 /* LaunchScreen.storyboard in Resources */,
+				F9827C391CDF6E94003B498C /* MJRefresh.bundle in Resources */,
 				F913F45F1C7A166D0074AD40 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -632,7 +661,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9827C3B1CDF6E94003B498C /* MJRefreshFooterView.m in Sources */,
 				F95B04C31C85DD9A00488287 /* Dock.m in Sources */,
+				F9827C3C1CDF6E94003B498C /* MJRefreshHeaderView.m in Sources */,
 				F9F1A7371C8BE70F0030F15F /* MoreController.m in Sources */,
 				F9F1A73A1C8BE73B0030F15F /* SquareController.m in Sources */,
 				F99E1ABC1CA44B9E00DBF4C8 /* GroupCell.m in Sources */,
@@ -642,14 +673,15 @@
 				F95B04C61C85DDBE00488287 /* DockItem.m in Sources */,
 				F99E1AB91CA431E400DBF4C8 /* UIImage+Ext.m in Sources */,
 				F9F6F6AF1CCCE30900869E35 /* Status.m in Sources */,
+				F9827C3A1CDF6E94003B498C /* MJRefreshBaseView.m in Sources */,
 				F9F6F6B21CCCE31A00869E35 /* User.m in Sources */,
 				F9F6F6B61CCD12D400869E35 /* StatusTool.m in Sources */,
 				F9F1A7461C8BEE000030F15F /* DockController.m in Sources */,
 				F9F81D1E1CC345040057F378 /* OauthAccount.m in Sources */,
 				F9BEAA511CD752B2006303AB /* IconView.m in Sources */,
+				F9827C3F1CDF7A7F003B498C /* MainViewController.m in Sources */,
 				F9F1A73D1C8BE7670030F15F /* MeController.m in Sources */,
 				F9F6F6AC1CCCDB7400869E35 /* BaseUITableViewController.m in Sources */,
-				F913F45A1C7A166D0074AD40 /* MainViewController.m in Sources */,
 				F913F4571C7A166D0074AD40 /* AppDelegate.m in Sources */,
 				F9F8A99E1CDDD59F00A3FE6B /* ImageListView.m in Sources */,
 				F985EAFF1CC68F5100C5CBC9 /* HQLHttpUtils.m in Sources */,
