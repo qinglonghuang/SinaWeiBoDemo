@@ -41,7 +41,8 @@
 - (void)setUrl:(NSString *)url
 {
     _url = url;
-    [HQLHttpUtils downloadImageWithUrl:url placeHolder:@"tabbar_profile_selected" imageView:self];
+
+    [HQLHttpUtils downloadImageWithUrl:url placeHolder:@"timeline_image_loading" imageView:self];
     
     _gifView.hidden = ![url.lowercaseString hasSuffix:@"gif"];
 }

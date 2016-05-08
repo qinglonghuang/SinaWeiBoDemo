@@ -35,10 +35,19 @@ static NSString * const CellID = @"HomeCellID";
     [self p_loadData];
     
     [self setNavigationItem];
-    [self.view setBackgroundColor:[UIColor lightGrayColor]];
+    
+    [self p_tableViewSetting];
 }
 
 #pragma mark - 私有方法
+- (void)p_tableViewSetting
+{
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.showsHorizontalScrollIndicator = NO;
+    self.tableView.showsVerticalScrollIndicator = NO;
+    [self.tableView setBackgroundColor:kGlobalBgColor];
+}
+
 - (void)p_loadData
 {
     WS(weakSelf);

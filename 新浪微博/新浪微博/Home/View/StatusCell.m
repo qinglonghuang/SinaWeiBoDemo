@@ -11,6 +11,7 @@
 #import "Common.h"
 #import "UIImage+Ext.h"
 #import "ImageListView.h"
+#import "StatusDock.h"
 
 // 时间颜色
 #define kTimeColor                  RGB(246, 165, 68)
@@ -23,18 +24,20 @@
 
 @interface StatusCell ()
 {
-    IconView *_iconView;                // 头像
-    UILabel *_screenNameLabel;          // 昵称
-    UIImageView *_mbView;                // 会员图标
-    UILabel *_timeLabel;                // 时间
-    UILabel *_sourceLabel;              // 来源
-    UILabel *_textLabel;                // 内容
-    ImageListView *_imageListView;            // 配图
+    IconView *_iconView;                        // 头像
+    UILabel *_screenNameLabel;                  // 昵称
+    UIImageView *_mbView;                       // 会员图标
+    UILabel *_timeLabel;                        // 时间
+    UILabel *_sourceLabel;                      // 来源
+    UILabel *_textLabel;                        // 内容
+    ImageListView *_imageListView;              // 配图
     
-    UIImageView *_retweetedContainer;   // 被转发微博的父控件
-    UILabel *_retweetedScreenNameLabel; // 被转发微博作者的昵称
-    UILabel *_retweetedTextLabel;       // 被转发微博的内容
-    ImageListView *_retweetedImageListView;   // 被转发微博的配图
+    UIImageView *_retweetedContainer;           // 被转发微博的父控件
+    UILabel *_retweetedScreenNameLabel;         // 被转发微博作者的昵称
+    UILabel *_retweetedTextLabel;               // 被转发微博的内容
+    ImageListView *_retweetedImageListView;     // 被转发微博的配图
+    
+    StatusDock *_statusDock;                    // 操作条
 }
 @end
 
@@ -50,6 +53,9 @@
         
         // 2.添加被转发微博的子控件
         [self addReweetedSubviews];
+        
+        // 3.设置操作条
+         [self addStatusDock];
     }
     
     return self;
@@ -120,6 +126,22 @@
     
 }
 
+#pragma mark 设置操作条
+- (void)addStatusDock
+{
+    _statusDock = [[StatusDock alloc] init];
+    [self.contentView addSubview:_statusDock];
+}
+
+#pragma mark 设置背景
+- (void)setBackground
+{
+    UIImage *bgImage = [UIImage resizedImage:@"common_card_background"];
+    UIImage *bgImageHL = [UIImage resizedImage:@"common_card_background_highlighted"];
+    self.backgroundView = [[UIImageView alloc] initWithImage:bgImage];
+    self.selectedBackgroundView = [[UIImageView alloc] initWithImage:bgImageHL];
+}
+
 - (void)setStatusCellFrame:(StatusCellFrame *)statusCellFrame
 {
     _statusCellFrame = statusCellFrame;
@@ -163,7 +185,7 @@
         _imageListView.hidden = YES;
     }
     
-    // 7. 被转发微博
+    // 7.被转发微博
     if (s.retweeted_status) {
         _retweetedContainer.hidden = NO;
         _retweetedContainer.frame = statusCellFrame.retweetedContainerFrame;
@@ -189,6 +211,16 @@
         _retweetedContainer.hidden = YES;
     }
     
+    // 8.操作条
+    _statusDock.frame = statusCellFrame.statusDockFrame;
+    
+}
+
+- (void)setFrame:(CGRect)frame
+{
+    frame.size.height -= kCellMargin;
+    
+    [super setFrame:frame];
 }
 
 @end

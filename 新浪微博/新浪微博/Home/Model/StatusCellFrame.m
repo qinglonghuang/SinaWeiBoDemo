@@ -117,15 +117,21 @@ static const CGFloat kCellBorderOffset = 10.0f;
         _retweetedContainerFrame = CGRectMake(retweetedContainerX, retweetedContainerY, retweetedContainerW, retweetedContainerH);
     }
     
-    // 8.整个cell的高度
-    _cellHeight = kCellBorderOffset;
+    // 8. 操作条
+    CGFloat statusDockY = kCellBorderOffset;
     if (status.pic_urls.count > 0) {
-        _cellHeight += CGRectGetMaxY(_imageListViewFrame);
+        statusDockY += CGRectGetMaxY(_imageListViewFrame);
     } else if (status.retweeted_status) {
-        _cellHeight += CGRectGetMaxY(_retweetedContainerFrame);
+        statusDockY += CGRectGetMaxY(_retweetedContainerFrame);
     } else {
-        _cellHeight += CGRectGetMaxY(_textLabelFrame);
+        statusDockY += CGRectGetMaxY(_textLabelFrame);
     }
+    _statusDockFrame = CGRectMake(0, statusDockY, cellW, kStatusDockHeight);
+    
+    
+    // 9.整个cell的高度
+    _cellHeight = kCellMargin;
+    _cellHeight += CGRectGetMaxY(_statusDockFrame);
 
 }
 

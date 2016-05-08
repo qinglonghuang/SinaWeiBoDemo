@@ -9,6 +9,7 @@
 #import "MoreController.h"
 #import "UIImage+Ext.h"
 #import "GroupCell.h"
+#import "Common.h"
 
 NSString * const kCellID = @"MoreCellID";
 
@@ -74,6 +75,7 @@ NSString * const kCellID = @"MoreCellID";
     [self.tableView registerClass:[GroupCell class] forCellReuseIdentifier:kCellID];
     
     [self addLogOutButton];
+    self.tableView.backgroundColor = kGlobalBgColor;
 }
 
 #pragma mark 添加退出登录按钮

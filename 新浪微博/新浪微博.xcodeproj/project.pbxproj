@@ -14,6 +14,7 @@
 		F913F45F1C7A166D0074AD40 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F913F45E1C7A166D0074AD40 /* Assets.xcassets */; };
 		F913F4621C7A166D0074AD40 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F913F4601C7A166D0074AD40 /* LaunchScreen.storyboard */; };
 		F913F46D1C7A1B550074AD40 /* NewFeaturesController.m in Sources */ = {isa = PBXBuildFile; fileRef = F913F46C1C7A1B550074AD40 /* NewFeaturesController.m */; };
+		F94338C41CDF2C490079CAD7 /* StatusDock.m in Sources */ = {isa = PBXBuildFile; fileRef = F94338C31CDF2C490079CAD7 /* StatusDock.m */; };
 		F95B04C31C85DD9A00488287 /* Dock.m in Sources */ = {isa = PBXBuildFile; fileRef = F95B04C21C85DD9A00488287 /* Dock.m */; };
 		F95B04C61C85DDBE00488287 /* DockItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F95B04C51C85DDBE00488287 /* DockItem.m */; };
 		F985EAFF1CC68F5100C5CBC9 /* HQLHttpUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = F985EAFE1CC68F5100C5CBC9 /* HQLHttpUtils.m */; };
@@ -58,6 +59,8 @@
 		F913F4631C7A166D0074AD40 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F913F46B1C7A1B550074AD40 /* NewFeaturesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewFeaturesController.h; sourceTree = "<group>"; };
 		F913F46C1C7A1B550074AD40 /* NewFeaturesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewFeaturesController.m; sourceTree = "<group>"; };
+		F94338C21CDF2C490079CAD7 /* StatusDock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusDock.h; sourceTree = "<group>"; };
+		F94338C31CDF2C490079CAD7 /* StatusDock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusDock.m; sourceTree = "<group>"; };
 		F95B04C11C85DD9A00488287 /* Dock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dock.h; sourceTree = "<group>"; };
 		F95B04C21C85DD9A00488287 /* Dock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dock.m; sourceTree = "<group>"; };
 		F95B04C41C85DDBE00488287 /* DockItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockItem.h; sourceTree = "<group>"; };
@@ -293,6 +296,8 @@
 				F9F8A99D1CDDD59F00A3FE6B /* ImageListView.m */,
 				F9F8A99F1CDE0E1800A3FE6B /* ImageItemView.h */,
 				F9F8A9A01CDE0E1800A3FE6B /* ImageItemView.m */,
+				F94338C21CDF2C490079CAD7 /* StatusDock.h */,
+				F94338C31CDF2C490079CAD7 /* StatusDock.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -648,6 +653,7 @@
 				F913F4571C7A166D0074AD40 /* AppDelegate.m in Sources */,
 				F9F8A99E1CDDD59F00A3FE6B /* ImageListView.m in Sources */,
 				F985EAFF1CC68F5100C5CBC9 /* HQLHttpUtils.m in Sources */,
+				F94338C41CDF2C490079CAD7 /* StatusDock.m in Sources */,
 				F9FB51D81CD6608700562D8E /* StatusCellFrame.m in Sources */,
 				F9F1A7401C8BE7930030F15F /* MessageController.m in Sources */,
 				F9F1A7431C8BE7C70030F15F /* HomeController.m in Sources */,

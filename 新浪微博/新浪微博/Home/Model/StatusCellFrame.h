@@ -18,6 +18,9 @@
 #define kRetweetedTextFont          [UIFont systemFontOfSize:16]
 #define kRetweetedScreenNameFont    [UIFont systemFontOfSize:16]
 
+#define kCellMargin                 10.0f
+#define kStatusDockHeight           35.0f
+
 @interface StatusCellFrame : NSObject
 
 @property (strong, nonatomic) Status *status;                               // 微博内容
@@ -29,11 +32,14 @@
 @property (nonatomic, readonly) CGRect timeLabelFrame;                      // 时间
 @property (nonatomic, readonly) CGRect sourceLabelFrame;                    // 来源
 @property (nonatomic, readonly) CGRect textLabelFrame;                      // 内容
-@property (nonatomic, readonly) CGRect imageListViewFrame;                      // 配图
+@property (nonatomic, readonly) CGRect imageListViewFrame;                  // 配图
 
 @property (nonatomic, readonly) CGRect retweetedContainerFrame;             // 被转发微博的父控件
 @property (nonatomic, readonly) CGRect retweetedScreenNameLabelFrame;       // 被转发微博作者的昵称
 @property (nonatomic, readonly) CGRect retweetedTextLabelFrame;             // 被转发微博的内容
-@property (nonatomic, readonly) CGRect retweetedImageListViewFrame;             // 被转发微博的配图
+@property (nonatomic, readonly) CGRect retweetedImageListViewFrame;         // 被转发微博的配图
+
+
+@property (nonatomic, readonly) CGRect statusDockFrame;                     // 操作条
 
 @end

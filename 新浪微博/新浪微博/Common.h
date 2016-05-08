@@ -20,4 +20,7 @@
 #define RGB(r, g, b) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:1.0f]
 #define RGBA(r, g, b, a) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:(a)]
 
+// 全局背景颜色
+#define kGlobalBgColor RGB(230, 230, 230)
+
 #endif /* Common_h */
